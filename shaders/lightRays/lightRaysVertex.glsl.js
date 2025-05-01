@@ -1,3 +1,4 @@
+const lightRaysVertex = `
 uniform float uTime;
 varying vec2 vUv;
 
@@ -10,4 +11,6 @@ void main() {
   pos.y += 0.01 * sin(uv.x * 12.0 + uTime);
 
   gl_Position = vec4(pos, 1.0);
-}
+}`
+
+export default lightRaysVertex

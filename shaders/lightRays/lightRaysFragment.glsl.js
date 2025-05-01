@@ -1,3 +1,4 @@
+const lightRaysFragments = `
 uniform vec3 uColor;
 uniform float uIntensity;
 uniform float uOpacity;
@@ -37,4 +38,6 @@ void main() {
   float alpha = rays * falloff * uIntensity * mix(0.0, uOpacity, uProgress);
 
   gl_FragColor = vec4(uColor, alpha);
-}
+}`
+
+export default lightRaysFragments
