@@ -4,7 +4,7 @@ const nextConfig = {
     turbo: {
       rules: {
         '*.{glsl,vs,fs,vert,frag}': {
-          loaders: ['raw-loader', 'glslify-loader'],
+          loaders: ['raw-loader'],
           as: '*.js',
         },
       },
