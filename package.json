@@ -14,7 +14,6 @@
     "@react-three/fiber": "^9.1.2",
     "@react-three/postprocessing": "^3.0.4",
     "clsx": "^2.1.1",
-    "glslify-loader": "^2.0.0",
     "gltfjsx": "^6.5.3",
     "gsap": "^3.12.7",
     "lamina": "^1.1.23",
@@ -39,6 +38,7 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
+    "glslify-loader": "^2.0.0",
     "raw-loader": "^4.0.2",
     "tailwindcss": "^4"
   }
