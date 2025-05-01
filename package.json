@@ -24,7 +24,6 @@
     "next": "15.3.0",
     "postprocessing": "^6.37.2",
     "r3f-perf": "^7.2.3",
-    "raw-loader": "^4.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-simple-typewriter": "^5.0.1",
@@ -40,6 +39,7 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
+    "raw-loader": "^4.0.2",
     "tailwindcss": "^4"
   }
 }
