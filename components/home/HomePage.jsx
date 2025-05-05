@@ -4,11 +4,14 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
+import { Typewriter } from "react-simple-typewriter";
 
 import GitHubIcon from "../icons/GitHubIcon";
 import LinkedInIcon from "../icons/LinkedInIcon";
 import EmailIcon from "../icons/EmailIcon";
 import useAudio from "@/hooks/useAudio";
+
+gsap.registerPlugin(useGSAP);
 
 const HomePage = ({ transitionStatus }) => {
   const container = useRef(null);
@@ -16,6 +19,8 @@ const HomePage = ({ transitionStatus }) => {
   const aboutRef = useRef();
   const avatarContainer = useRef();
   const avatarRef = useRef();
+  const nameRef = useRef();
+  const titleRef = useRef();
   const socialLinks = useRef();
   const socials = [
     {
@@ -35,7 +40,6 @@ const HomePage = ({ transitionStatus }) => {
     },
   ];
 
-  // Load all the sounds
   const { playAudio: playBackgroundAudio } = useAudio({
     src: '/sounds/background.aac',
     loop: true,
@@ -46,25 +50,49 @@ const HomePage = ({ transitionStatus }) => {
 
   useGSAP(() => {
     if (transitionStatus === 'entering') {
-      playBackgroundAudio();
       playButtonAudio();
+      playBackgroundAudio();
 
+      const splitName = new SplitType(nameRef.current, {
+        charClass: 'opacity-0 blur-sm',
+      });
       const splitHeading = new SplitType(headingRef.current, {
         charClass: 'opacity-0 blur-sm',
       });
 
-      gsap
-        .timeline({ delay: 4.0, })
+      gsap.timeline({ delay: 4.0 })
         .fromTo(
           avatarContainer.current,
           { opacity: 0, scale: 0.3 },
-          { opacity: 1, scale: 1, duration: 1.0, ease: 'power2.out', onStart: () => { playLogoAudio(); } },
+          {
+            opacity: 1, scale: 1, duration: 1.0, ease: 'power2.out', onStart: () => {
+              playLogoAudio();
+            }
+          },
         )
-        .to(avatarRef.current, { opacity: 1, duration: 0.6, ease: 'power2.in' }, 0.7)
+        .to(
+          avatarRef.current,
+          { opacity: 1, duration: 0.6, ease: 'power1.in' },
+          0.7
+        )
         .fromTo(
-          socialLinks.current,
-          { opacity: 0, scale: 0.3, },
-          { opacity: 1, scale: 1, duration: 0.8, ease: 'power1.in', },
+          splitName.chars,
+          { opacity: 0 },
+          {
+            keyframes: [
+              { opacity: 0.6, filter: 'blur(4px)', ease: 'power1.out' },
+              { opacity: 1, filter: 'blur(0px)', ease: 'power1.out' },
+            ],
+            duration: 1.2,
+            stagger: 0.07,
+            ease: 'power2.out',
+          }
+        )
+        .fromTo(
+          titleRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 1.2, ease: 'power2.out' },
+          "-=0.8"
         )
         .fromTo(
           splitHeading.chars,
@@ -75,14 +103,22 @@ const HomePage = ({ transitionStatus }) => {
               { opacity: 1, filter: 'blur(0px)', ease: 'power1.out' },
             ],
             duration: 0.6,
-            stagger: 0.032,
+            stagger: 0.03,
             ease: 'power2.out',
           },
+          "-=0.8"
         )
         .fromTo(
           aboutRef.current,
-          { opacity: 0, },
-          { opacity: 1, duration: 1.4, ease: 'power1.out', },
+          { opacity: 0 },
+          { opacity: 1, duration: 1.2, ease: 'power2.out' },
+          "-=0.2"
+        )
+        .fromTo(
+          socialLinks.current,
+          { opacity: 0, scale: 0.3 },
+          { opacity: 1, scale: 1, duration: 0.8, ease: 'power1.in' },
+          "-=0.9"
         );
     }
 
@@ -91,26 +127,28 @@ const HomePage = ({ transitionStatus }) => {
         opacity: 0,
         duration: 0.4,
         ease: 'power1.out',
-      })
+      });
     }
-  }, { dependencies: [transitionStatus], scope: container },)
+  }, { dependencies: [transitionStatus], scope: container });
+
 
   return (
     <section
       ref={container}
-      className="absolute inset-0 z-20 flex flex-col sm:grid grid-rows-[14rem_14rem_14rem] items-center justify-center gap-8 sm:gap-10 px-4 text-white"
+      className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-8 p-6 text-white overflow-auto"
       aria-label="Homepage main content"
     >
-      <header className="w-full h-full flex flex-col items-center justify-end gap-4 text-center">
-        <h1 ref={headingRef} className="text-2xl font-semibold tracking-tight sm:text-4xl">
+      <div className="w-full flex flex-col items-center justify-center gap-4 text-center">
+        <h2 ref={headingRef} className="text-xl font-semibold sm:text-3xl">
           Building the Future of Interactive Web
-        </h1>
-        <p ref={aboutRef} className="max-w-xl text-sm font-light leading-relaxed text-white/90 sm:text-base">
-          I specialize in building dynamic, visually immersive interfaces using modern web technologies like React, Three.js, and GLSL shaders. Pushing the boundaries of frontend development through creative code and interactive design.
+        </h2>
+        <p ref={aboutRef} className="max-w-2xl text-sm sm:text-base font-light leading-relaxed">
+          I specialize in building dynamic, visually immersive interfaces using modern web technologies like React, Next.js, Three.js, and GLSL shaders.
+          Pushing the boundaries of frontend development through creative code and interactive design.
         </p>
-      </header>
+      </div>
 
-      <div className="w-full h-full flex flex-col items-center justify-center">
+      <div className="w-full flex flex-col items-center justify-center gap-4">
         <figure
           ref={avatarContainer}
           className="rounded-full border-2 border-white p-2 shadow-[0_0_6px_rgba(255,255,255,0.33),_inset_0_0_6px_rgba(255,255,255,0.33)] opacity-0 glass-bg-figure"
@@ -123,18 +161,33 @@ const HomePage = ({ transitionStatus }) => {
             className="aspect-square w-44 sm:w-56 rounded-full object-cover opacity-0"
           />
         </figure>
+        <h1 ref={nameRef} className="text-3xl sm:text-5xl font-bold tracking-tight">
+          Varun Patel
+        </h1>
+        <p ref={titleRef} className="text-xl sm:text-2xl font-light text-white">
+          <Typewriter
+            words={['Creative Coder', 'Frontend Developer', '3D Web Artist', 'Shader Enthusiast']}
+            loop={true}
+            cursor
+            cursorStyle="|"
+            typeSpeed={80}
+            deleteSpeed={50}
+            delaySpeed={2000}
+          />
+        </p>
       </div>
 
-      <div className="w-full h-full flex items-start justify-center">
-        <nav ref={socialLinks} className="flex gap-6 opacity-0 scale-[0.3]" aria-label="Social links">
+      <div className="w-full flex items-start justify-center pt-2">
+        <nav ref={socialLinks} className="flex gap-5" aria-label="Social links">
           {socials.map((social, index) => (
             <a
               key={index}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="size-12 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20 glass-bg"
+              className="size-9 sm:size-10 rounded-full p-2 sm:p-[10px] text-white transition glass-bg"
               aria-label={`Visit ${social.name}`}
+              title={social.name}
             >
               {social.icon}
             </a>
