@@ -13,7 +13,7 @@ export default function Home() {
   const hasEntered = useEnterState(state => state.hasEntered);
 
   return (
-    <main className="w-full h-[100dvh] flex flex-col items-center justify-center text-center">
+    <main className="w-full h-[100dvh] flex flex-col items-center justify-center text-center bg-[#12141F]">
       <SwitchTransition mode="in-out">
         <Transition key={hasEntered} timeout={{ enter: 0, exit: 800 }} nodeRef={wrapper} appear={true}>
           {((transitionStatus) => (
