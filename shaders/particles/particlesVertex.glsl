@@ -1,8 +1,8 @@
 uniform float uTime;
-uniform float uSize;
-uniform float uProgress;
 uniform float uPixelRatio;
 uniform vec2 uResolution;
+uniform float uSize;
+uniform float uProgress;
 
 attribute vec3 aColor;
 attribute float aSeed;

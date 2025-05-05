@@ -1,8 +1,9 @@
+uniform float uTime;
+uniform float uProgress;
 uniform vec3 uColor;
 uniform float uIntensity;
 uniform float uOpacity;
-uniform float uTime;
-uniform float uProgress;
+
 varying vec2 vUv;
 
 float lineRay(vec2 dir, float angle, float width) {

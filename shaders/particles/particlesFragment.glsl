@@ -3,8 +3,6 @@ varying float vSeed;
 varying float vOpacity;
 varying float vZ;
 
-uniform float uProgress;
-
 void main() {
   // Circular mask
   vec2 uv = gl_PointCoord - vec2(0.5);
