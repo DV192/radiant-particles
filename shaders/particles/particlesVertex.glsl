@@ -1,4 +1,3 @@
-const particlesVertex = `
 uniform float uTime;
 uniform float uSize;
 uniform float uProgress;
@@ -54,6 +53,4 @@ void main() {
   gl_PointSize *= (1.0 / -viewPosition.z);
 
   vZ = viewPosition.z; // Pass z position to fragment shader for depth-based color
-}`
-
-export default particlesVertex
+}
