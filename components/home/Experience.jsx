@@ -191,8 +191,8 @@ export function LightRays() {
     uColor: new THREE.Uniform(new THREE.Color(1, 1, 1)),
     uIntensity: new THREE.Uniform(0.4),
     uOpacity: new THREE.Uniform(1.0),
-    uTime: new THREE.Uniform(0),
-    uProgress: new THREE.Uniform(0),
+    uTime: new THREE.Uniform(0.0),
+    uProgress: new THREE.Uniform(0.0),
   }), []);
 
   useGSAP(() => {
