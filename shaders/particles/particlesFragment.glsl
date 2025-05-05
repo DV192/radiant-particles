@@ -1,4 +1,4 @@
-const particlesFragment = `
+// const particlesFragment = `
 varying vec3 vColor;
 varying float vSeed;
 varying float vOpacity;
@@ -38,6 +38,7 @@ void main() {
   float alpha = circle * vOpacity * fade;
 
   gl_FragColor = vec4(vColor, alpha);
-}`
+}
+// `
 
-export default particlesFragment
+// export default particlesFragment
