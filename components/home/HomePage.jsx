@@ -90,9 +90,15 @@ const HomePage = ({ transitionStatus }) => {
         )
         .fromTo(
           titleRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 1.2, ease: 'power2.out' },
+          { opacity: 0, scale: 0.3 },
+          { opacity: 1, scale: 1, duration: 0.9, ease: 'power1.inOut' },
           "-=0.8"
+        )
+        .fromTo(
+          socialLinks.current,
+          { opacity: 0, scale: 0.3 },
+          { opacity: 1, scale: 1, duration: 0.8, ease: 'power1.inOut' },
+          "-=0.2"
         )
         .fromTo(
           splitHeading.chars,
@@ -106,19 +112,13 @@ const HomePage = ({ transitionStatus }) => {
             stagger: 0.03,
             ease: 'power2.out',
           },
-          "-=0.8"
+          "-=0.4"
         )
         .fromTo(
           aboutRef.current,
           { opacity: 0 },
-          { opacity: 1, duration: 1.2, ease: 'power2.out' },
-          "-=0.2"
-        )
-        .fromTo(
-          socialLinks.current,
-          { opacity: 0, scale: 0.3 },
-          { opacity: 1, scale: 1, duration: 0.8, ease: 'power1.in' },
-          "-=0.9"
+          { opacity: 1, duration: 0.8, ease: 'power2.inOut' },
+          "-=0.4"
         );
     }
 
