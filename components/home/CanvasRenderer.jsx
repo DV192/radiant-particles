@@ -3,9 +3,9 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 // import { OrbitControls, Stats } from "@react-three/drei";
+// import { Perf } from "r3f-perf";
 
 import Experience from "./Experience";
-// import { Perf } from "r3f-perf";
 
 const CanvasRenderer = () => {
 
