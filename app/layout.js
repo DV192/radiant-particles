@@ -31,7 +31,7 @@ export const metadata = {
     siteName: "Varun Patel Portfolio",
     images: [
       {
-        url: "https://radiant-particles.vercel.app/avatar.jpg",
+        url: "https://radiant-particles.vercel.app/radiant-particles-screenshot.png",
         width: 1200,
         height: 630,
         alt: "Varun Patel Portfolio Screenshot",
