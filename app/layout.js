@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Varun Patel - Frontend Developer",
-  description: "Building dynamic, immersive web interfaces with React, Three.js, and GLSL shaders. Portfolio of Varun Patel, frontend developer and creative coder.",
+  description: "Radiant Particles is a personal creative project by Varun Patel, showcasing immersive web interfaces built with Next.js, Three.js, and GLSL shaders.",
   keywords:
-    "Frontend Developer, Varun Patel, WebGL, React, Three.js, GLSL, Creative Coding, UI, Interactive Web, Portfolio",
+    "Radiant Particles, Varun Patel, Frontend Developer, Next.js, HTML, CSS, JavaScript, Tailwind CSS, Three.js, WebGL, GLSL, Shaders, React Three Fiber, Creative Coding, Interactive Web, UI, Portfolio",
   authors: [{ name: "Varun Patel", url: "https://radiant-particles.vercel.app/" }],
   creator: "Varun Patel",
   icons: {
@@ -24,17 +24,16 @@ export const metadata = {
     apple: "icons/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Varun Patel - Frontend Developer",
-    description:
-      "Explore the portfolio of Varun Patel - building immersive, interactive web experiences with cutting-edge frontend tech.",
+    title: "Radiant Particles - by Varun Patel",
+    description: "A creative web experience by Varun Patel using cutting-edge frontend tools like Next.js, Three.js, and GLSL. Explore radiant visual interactivity.",
     url: "https://radiant-particles.vercel.app/",
-    siteName: "Varun Patel Portfolio",
+    siteName: "Radiant Particles",
     images: [
       {
         url: "https://radiant-particles.vercel.app/radiant-particles-screenshot.png",
         width: 1200,
         height: 630,
-        alt: "Varun Patel Portfolio Screenshot",
+        alt: "Radiant Particles - Varun Patel's creative project",
       },
     ],
     locale: "en_US",
