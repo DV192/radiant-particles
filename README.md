@@ -20,8 +20,8 @@ Radiant Particles is an immersive, sound-enhanced visual experience crafted with
 - JavaScript (Interactivity)
 - [Tailwind CSS](https://tailwindcss.com/) (Utility-First CSS Framework)
 - [Three.js](https://threejs.org/) (JavaScript 3D Library)
-- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) (3D Graphics Library)
-- [React Three Drei](https://github.com/pmndrs/drei)
+- [React Three Fiber](https://r3f.docs.pmnd.rs/getting-started/introduction) (3D Graphics Library)
+- [React Three Drei](https://drei.docs.pmnd.rs/getting-started/introduction)
 - Custom Shader Materials
 - [GSAP](https://gsap.com/) (Animation Library)
 - react-transition-group
